@@ -8,7 +8,7 @@ load_dotenv()  # This loads the environment variables from a .env file.
 
 api_key = os.getenv("GEMINI_API_KEY")
 
-genai.configure(api_key=API_KEY)
+
 
 # Initialize the chat session and history
 if 'chat_session' not in st.session_state:
