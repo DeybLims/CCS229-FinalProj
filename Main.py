@@ -1,14 +1,12 @@
+
+from dotenv import load_dotenv
 import streamlit as st
 import os
 import google.generativeai as genai
 
 # Load API key from environment variable
-API_KEY = os.getenv("GOOGLE_API_KEY")
-if not API_KEY:
-    st.error("Please set the GOOGLE_API_KEY environment variable with your Gemini API key.")
-    exit()
-
-genai.configure(api_key=API_KEY)
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
 
 # Initialize the chat session and history
 if 'chat_session' not in st.session_state:
