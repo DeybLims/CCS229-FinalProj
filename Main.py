@@ -14,7 +14,8 @@ if api_key is None:
 # Initialize the chat session and history
 if 'chat_session' not in st.session_state:
     # Assuming the API key needs to be passed to the model, adjust as necessary
-    model = genai.GenerativeModel('gemini-pro', api_key=api_key)  # Adjust API key parameter if necessary
+    config = genai.ModelConfig(api_key=api_key)
+    model = genai.GenerativeModel('gemini-pro', config=config)
     st.session_state.chat_session = model.start_chat()
     st.session_state.chat_history = []  # Initialize chat history
 
