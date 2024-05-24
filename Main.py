@@ -11,7 +11,7 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 # Initialize the chat session
 if 'chat_session' not in st.session_state:
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-pro')
     st.session_state.chat_session = model.start_chat()
 
 # Function to handle chat interaction
