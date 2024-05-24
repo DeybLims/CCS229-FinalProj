@@ -1,3 +1,4 @@
+
 from dotenv import load_dotenv
 import streamlit as st
 import os
@@ -7,15 +8,10 @@ import google.generativeai as genai
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
-if api_key is None:
-    st.error("API key not found. Please check your .env file and ensure it's loaded correctly.")
-    st.stop()
 
 # Initialize the chat session and history
 if 'chat_session' not in st.session_state:
-    # Assuming the API key needs to be passed to the model, adjust as necessary
-    config = genai.ModelConfig(api_key=api_key)
-    model = genai.GenerativeModel('gemini-pro', config=config)
+    model = genai.GenerativeModel('gemini-pro')
     st.session_state.chat_session = model.start_chat()
     st.session_state.chat_history = []  # Initialize chat history
 
@@ -53,6 +49,6 @@ if st.button("Ask Gemini"):
 
 if st.button("Reset Conversation"):
     # Restart the chat session if needed and clear the history
-    model = genai.GenerativeModel('gemini-pro', api_key=api_key)  # Ensure API key is passed again
+    model = genai.GenerativeModel('gemini-pro')
     st.session_state.chat_session = model.start_chat()
     st.session_state.chat_history = []
