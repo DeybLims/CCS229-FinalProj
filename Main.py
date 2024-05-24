@@ -1,4 +1,3 @@
-from google.oauth2 import service_account
 from dotenv import load_dotenv
 import streamlit as st
 import os
@@ -8,13 +7,6 @@ import google.generativeai as genai
 load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
-# Specify the required scopes
-SCOPES = ['https://www.googleapis.com/auth/cloud-platform']  # Adjust this based on actual requirements
-
-# Load the service account credentials and specify the required scopes
-credentials = service_account.Credentials.from_service_account_file(
-    'service_account.json',
-    scopes=SCOPES)
 
 # Initialize the chat session and history
 if 'chat_session' not in st.session_state:
