@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 
 # Load API key from environment variable
-API_KEY = os.getenv("AIzaSyCUF2MTcQ6nMpI_L-WBBcfRn3i5HfaJUsg")
+API_KEY = os.getenv("GOOGLE_API_KEY")
 if not API_KEY:
     st.error("Please set the GOOGLE_API_KEY environment variable with your Gemini API key.")
     exit()
