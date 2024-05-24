@@ -11,20 +11,19 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 # Initialize the chat session
 if 'chat_session' not in st.session_state:
-    model = genai.GenerativeModel('gemini-1.5-pro')
+    model = genai.GenerativeModel('gemini-pro', api_key=api_key)
     st.session_state.chat_session = model.start_chat()
 
 # Function to handle chat interaction
 def handle_chat(question):
     try:
-        # Send the user's question to Gemini and fetch the response
         response = st.session_state.chat_session.send_message(question)
         st.session_state.chat_history.append({"type": "Question", "content": question})
-
         return response
     except Exception as e:
-        st.error(f"An error occurred: {str(e)}")
+        st.error(f"An error occurred: {e}")
         return None
+
 
 # Streamlit App setup
 st.set_page_config(page_title="Dynamic Q&A Demo")
