@@ -4,8 +4,8 @@ from google.generativeai import genai
 from dotenv import load_dotenv
 
 # Load API key from environment variable
-load_dotenv()  # This loads the environment variables from a .env file.
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=os.getenv("API_KEY"))
   # Ensure correct API key variable usage
 
 # Initialize the chat session and chat history if not already present
