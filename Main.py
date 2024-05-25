@@ -3,17 +3,16 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Load API key from environment variable
 api_key = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=os.getenv("API_KEY"))
 
-# Initialize the chat session and chat history if not already present
-if 'chat_session' not in st.session_state:
-    model = genai.GenerativeModel('gemini-1.5-pro')  # Ensure consistent model version usage
-    st.session_state.chat_session = model.start_chat()
-    st.session_state.chat_history = []  # Initialize chat history here to avoid attribute error
 
-# Function to handle chat interaction
+if 'chat_session' not in st.session_state:
+    model = genai.GenerativeModel('gemini-1.5-pro')  
+    st.session_state.chat_session = model.start_chat()
+    st.session_state.chat_history = []  
+
+
 def handle_chat(question):
     try:
         response = st.session_state.chat_session.send_message(question)
@@ -24,7 +23,7 @@ def handle_chat(question):
         st.error(f"An error occurred: {str(e)}")
         return None
 
-# Story creation input fields
+
 def story_creation_form():
     with st.form(key='story_form'):
         theme = st.text_input("What is the main idea or theme of the story? (e.g., love, betrayal, courage)")
@@ -39,19 +38,19 @@ def story_creation_form():
             return story_prompt
     return None
 
-# Streamlit App setup
+
 st.set_page_config(page_title="Story Creation Demo")
 st.header("📚 Story Creation with Gemini")
 
-# Story creation section
+
 story_prompt = story_creation_form()
 if story_prompt:
     response = handle_chat(story_prompt)
     if response:
         st.subheader("Generated Story:")
-        st.write(response.text)  # Display the generated story
+        st.write(response.text)  
 
-# Conversation history display
+
 if 'chat_history' in st.session_state:
     st.subheader("Conversation History:")
     for entry in st.session_state.chat_history:
@@ -60,7 +59,6 @@ if 'chat_history' in st.session_state:
         elif entry['type'] == "Response":
             st.markdown(f"*Gemini replied:* {entry['content']}")
 
-# Reset conversation functionality
 if st.button("Reset Conversation"):
     model = genai.GenerativeModel('gemini-1.5-pro')
     st.session_state.chat_session = model.start_chat()
