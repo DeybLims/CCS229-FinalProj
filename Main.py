@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load API key from environment variable
 load_dotenv()  # This loads the environment variables from a .env file.
 api_key = os.getenv("API_KEY")
-genai.configure(api_key=api_key)  # Ensure correct API key variable usage
+  # Ensure correct API key variable usage
 
 # Initialize the chat session and chat history if not already present
 if 'chat_session' not in st.session_state:
