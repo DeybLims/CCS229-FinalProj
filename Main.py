@@ -40,8 +40,8 @@ def story_creation_form():
     return None
 
 # Streamlit App setup
-st.set_page_config(page_title="Dynamic Q&A and Story Creation Demo")
-st.header("Dynamic Conversation and Story Creation with Gemini")
+st.set_page_config(page_title="Story Creation Demo")
+st.header("Story Creation with Gemini")
 
 # Story creation section
 story_prompt = story_creation_form()
