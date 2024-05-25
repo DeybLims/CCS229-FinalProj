@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()  # This loads the environment variables from a .env file.
 
 api_key = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=os.getenv("API_KEY"))
 
 
 # Initialize the chat session
