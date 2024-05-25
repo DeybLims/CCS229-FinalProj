@@ -51,6 +51,6 @@ if st.button("Ask Gemini"):
 
 if st.button("Reset Conversation"):
     # Restart the chat session if needed and clear the history
-    model = genai.GenerativeModel('gemini-1.5-pro')  # Ensure consistent model version usage
+    model = genai.GenerativeModel('gemini-pro')  # Ensure consistent model version usage
     st.session_state.chat_session = model.start_chat()
     st.session_state.chat_history = []  # Clear history when resetting
