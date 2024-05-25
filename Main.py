@@ -41,7 +41,7 @@ def story_creation_form():
 
 # Streamlit App setup
 st.set_page_config(page_title="Story Creation Demo")
-st.header("Story Creation with Gemini")
+st.header("📚 Story Creation with Gemini")
 
 # Story creation section
 story_prompt = story_creation_form()
