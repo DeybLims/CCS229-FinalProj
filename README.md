@@ -57,7 +57,7 @@ streamlit run your_script_name.py
 ## Usage Instructions
 
 1. **Open the App:**
-   - Start the app and navigate to the provided local URL (usually `http://localhost:8501`).
+   - Start the app and navigate to the provided local URL.
 
 2. **Input Story Elements:**
    - Enter the desired elements of your story in the provided text fields.
