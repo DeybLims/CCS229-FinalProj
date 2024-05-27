@@ -13,24 +13,19 @@ This project leverages Google's generative AI, specifically the Gemini model, to
 
 ### Installation
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://yourrepository.git
-   cd yourrepository
-   ```
 
-2. **Set up a Virtual Environment (optional but recommended):**
+1. **Set up a Virtual Environment (optional but recommended):**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
-3. **Install Dependencies:**
+2. **Install Dependencies:**
    ```bash
    pip install streamlit google-generativeai python-dotenv
    ```
 
-4. **Environment Variables:**
+3. **Environment Variables:**
    - Create a `.env` file in the root directory of the project.
    - Add your API key to the `.env` file:
      ```plaintext
